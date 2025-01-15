@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Logs</title>
+</head>
+<body>
+    <h1>Temperature Logs</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Temperature (°C)</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log['id'] }}</td>
+            <td>{{ log['temperature'] }}</td>
+            <td>{{ log['timestamp'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/plot">View Temperature Plot</a>
+</body>
+</html>
