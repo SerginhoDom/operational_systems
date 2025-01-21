@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Текущая температура: {{ temperature }}°C</h1>
+    <h2>Статистика</h2>
+    <p>Средняя температура: {{ statistics.average }}°C</p>
+    <p>Минимальная температура: {{ statistics.min }}°C</p>
+    <p>Максимальная температура: {{ statistics.max }}°C</p>
+
+    <canvas id="temperatureChart" width="400" height="200"></canvas>
+    <script>
+        const ctx = document.getElementById('temperatureChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+                datasets: [{
+                    label: 'Температура',
+                    data: [20, 22, 24, 23, 25, 26],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
